@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Tasks</title>
+			
+		<!-- CSS -->
+		<link rel="stylesheet" 
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" 
+			integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" 
+			crossorigin="anonymous">
+		
+	</head>
+	
+	<body>
+		<div class="container my-2">
+			<h1>Add New Task</h1>
+			
+			<form th:action="@{/saveTask}" th:object="${task}" method="POST">
+				<input type="text" th:field="*{title}" required
+					placeholder="Title" class="form-control mb-4 col-4">
+					
+				<input type="text" th:field="*{todo}" required
+					placeholder="TODO" class="form-control mb-4 col-4">
+				
+				<button type="submit" class="btn btn-primary">Add Task</button>
+				<a th:href="@{/}" class="btn btn-info">Cancel</a>
+			</form>
+			
+		</div>
+	</body>
+</html>
