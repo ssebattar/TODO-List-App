@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Task</title>
+			
+		<!-- CSS -->
+		<link rel="stylesheet" 
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" 
+			integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" 
+			crossorigin="anonymous">
+			
+	</head>
+	
+	<body>
+		<div class="container my-2">
+			<h1>Task Details</h1>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Title</th>
+						<th>TODO</th>
+					</tr>
+				</thead>
+				
+				<tr th:each="attrib : ${task}">
+					<td th:text="${attrib.tid}"></td>
+					<td th:text="${attrib.title}"></td>
+					<td th:text="${attrib.todo}"></td>
+				</tr>
+			</table>
+			
+			<hr>
+			<a th:href="@{/}" class="btn btn-warning">Exit Task View</a>
+			
+		</div>
+	</body>
+</html>

@@ -24,6 +24,14 @@ public class TaskController {
 		return "tasks";
 	}
 	
+	@GetMapping("/viewTask/{id}")
+	public String viewTask(Model model, @PathVariable(value = "id") long id) {
+		Task task = taskService.getTaskById(id);
+		model.addAttribute("task", task);
+		
+		return "view_task";
+	}
+	
 	@GetMapping("/addTask")
 	public String addTask(Model model) {
 		Task newTask = new Task();
